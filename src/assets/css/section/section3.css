@@ -1,0 +1,32 @@
+#section3 {
+  width: 100%;
+  height: 100vh;
+}
+
+#section3 .contents3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+#section3 .contents3 .cont__box {
+  width: 80%;
+  max-width: 800px;
+  position: relative;
+}
+
+#section3 .contents3 .text {
+  color: var(--white);
+  font-family: var(--title-font);
+  font-size: 5vw;
+}
+
+#section3 .contents3 .text1 {
+  position: absolute;
+}
+
+#section3 .contents3 .text2 {
+  position: absolute;
+}
