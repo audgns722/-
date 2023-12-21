@@ -3,12 +3,12 @@ import Img3 from "../../assets/img/test.png"; // 이미지 변경
 
 import { ScrollTrigger } from "gsap/all";
 import gsap from "gsap";
+import { Link } from "react-router-dom";
 
 const Section4 = () => {
   gsap.registerPlugin(ScrollTrigger);
   const pathMaskRef = useRef(null);
   const section4Ref = useRef(null);
-
   const text1Ref = useRef(null); // 필요한 경우 text1, text2 참조
   const text2Ref = useRef(null);
 
@@ -69,7 +69,7 @@ const Section4 = () => {
       <div className="contents4">
         <div className="cont__box">
           <svg
-            class="content__img content__img--3"
+            className="content__img content__img--3"
             width="100%"
             height="100%"
             viewBox="0 0 1000 560"
@@ -96,17 +96,19 @@ const Section4 = () => {
                   ref={pathMaskRef}
                   d="M 0 280 Q 500 280 1000 280 Q 500 280 0 280"
                   fill="white"
-                  class="mask"
+                  className="mask"
                   style={{ filter: "url(#displacementFilter3)" }}
                 />
               </mask>
             </defs>
-            <image
-              xlinkHref={Img3}
-              width="100%"
-              height="100%"
-              mask="url(#pathMask)"
-            />
+            <Link to="/home">
+              <image
+                xlinkHref={Img3}
+                width="100%"
+                height="100%"
+                mask="url(#pathMask)"
+              />
+            </Link>
           </svg>
           <div className="text">
             <div className="text1" ref={text1Ref}>

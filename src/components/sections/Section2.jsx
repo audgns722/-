@@ -9,7 +9,6 @@ const Section2 = () => {
   gsap.registerPlugin(ScrollTrigger);
   const circleMaskRef = useRef(null);
   const section2Ref = useRef(null);
-
   const text1Ref = useRef(null);
   const text2Ref = useRef(null);
 
@@ -24,46 +23,39 @@ const Section2 = () => {
       },
     });
 
-
     // text1에 ScrollTrigger 애니메이션 적용
-    gsap.to(
-      text1Ref.current,
-      {
-        opacity: 1,
-        left: "0", // 왼쪽 끝으로 이동
-        top: "0", // 상단으로 이동
-        scrollTrigger: {
-          trigger: section2Ref.current,
-          start: "25% center",
-          end: "bottom bottom",
-          ease: "ease in",
-          scrub: 2.5,
-        },
-      }
-    );
+    gsap.to(text1Ref.current, {
+      opacity: 1,
+      left: "0", // 왼쪽 끝으로 이동
+      top: "0", // 상단으로 이동
+      scrollTrigger: {
+        trigger: section2Ref.current,
+        start: "25% center",
+        end: "bottom bottom",
+        ease: "ease in",
+        scrub: 2.5,
+      },
+    });
 
     // text2에 ScrollTrigger 애니메이션 적용
-    gsap.to(
-      text2Ref.current,
-      {
-        opacity: 1,
-        right: "0", // 오른쪽 끝으로 이동
-        bottom: "0", // 하단으로 이동
-        scrollTrigger: {
-          trigger: section2Ref.current,
-          start: "25% center",
-          end: "bottom bottom",
-          scrub: 2.5,
-          ease: "ease in",
-        },
-        onComplete: () => {
-          gsap.to(".contents2 .desc", {
-            opacity: 0.5,
-            ease: "expo.in",
-          });
-        }
-      }
-    );
+    gsap.to(text2Ref.current, {
+      opacity: 1,
+      right: "0", // 오른쪽 끝으로 이동
+      bottom: "0", // 하단으로 이동
+      scrollTrigger: {
+        trigger: section2Ref.current,
+        start: "25% center",
+        end: "bottom bottom",
+        scrub: 2.5,
+        ease: "ease in",
+      },
+      onComplete: () => {
+        gsap.to(".contents2 .desc", {
+          opacity: 0.5,
+          ease: "expo.in",
+        });
+      },
+    });
 
     return () => {
       maskAnimation.kill();
@@ -83,10 +75,13 @@ const Section2 = () => {
             api site
           </div>
           <div className="desc">
-            <p>유튜브 API를 이용하여 좋아하는 다큐멘터리 채널과 영상을 모아봤습니다.</p>
+            <p>
+              유튜브 API를 이용하여 좋아하는 다큐멘터리 채널과 영상을
+              모아봤습니다.
+            </p>
           </div>
           <svg
-            class="content__img content__img--1"
+            className="content__img content__img--1"
             width="100%"
             height="100%"
             viewBox="0 0 504 719"
@@ -114,7 +109,7 @@ const Section2 = () => {
                   r="0"
                   fill="white"
                   ref={circleMaskRef}
-                  class="mask"
+                  className="mask"
                   style={{ filter: "url(#displacementFilter)" }}
                 />
               </mask>
@@ -129,7 +124,6 @@ const Section2 = () => {
             </Link>
           </svg>
         </div>
-
       </div>
     </section>
   );

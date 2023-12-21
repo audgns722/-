@@ -3,13 +3,13 @@ import Img2 from "../../assets/img/section3bg.png";
 
 import { ScrollTrigger } from "gsap/all";
 import gsap from "gsap";
+import { Link } from "react-router-dom";
 
 const Section3 = () => {
   gsap.registerPlugin(ScrollTrigger);
 
   const circleMaskRef = useRef(null);
   const section3Ref = useRef(null);
-
   const text1Ref = useRef(null);
   const text2Ref = useRef(null);
 
@@ -27,42 +27,36 @@ const Section3 = () => {
           delay: 3,
           opacity: 0,
           ease: "expo.in",
-          y: 10
+          y: 10,
         });
-      }
+      },
     });
 
-    gsap.to(
-      text1Ref.current,
-      {
-        opacity: 1,
-        left: "0", // 왼쪽 끝으로 이동
-        top: "0", // 상단으로 이동
-        scrollTrigger: {
-          trigger: section3Ref.current,
-          start: "25% center",
-          end: "bottom bottom",
-          ease: "none",
-          scrub: true,
-        },
-      }
-    );
+    gsap.to(text1Ref.current, {
+      opacity: 1,
+      left: "0", // 왼쪽 끝으로 이동
+      top: "0", // 상단으로 이동
+      scrollTrigger: {
+        trigger: section3Ref.current,
+        start: "25% center",
+        end: "bottom bottom",
+        ease: "none",
+        scrub: true,
+      },
+    });
 
-    gsap.to(
-      text2Ref.current,
-      {
-        opacity: 1,
-        right: "0", // 오른쪽 끝으로 이동
-        bottom: "0", // 하단으로 이동
-        scrollTrigger: {
-          trigger: section3Ref.current,
-          start: "25% center",
-          end: "bottom bottom",
-          scrub: true,
-          ease: "none",
-        },
-      }
-    );
+    gsap.to(text2Ref.current, {
+      opacity: 1,
+      right: "0", // 오른쪽 끝으로 이동
+      bottom: "0", // 하단으로 이동
+      scrollTrigger: {
+        trigger: section3Ref.current,
+        start: "25% center",
+        end: "bottom bottom",
+        scrub: true,
+        ease: "none",
+      },
+    });
 
     return () => {
       maskAnimation.kill();
@@ -81,10 +75,13 @@ const Section3 = () => {
             blog site
           </div>
           <div className="desc">
-            <p>유튜브 API를 이용하여 좋아하는 다큐멘터리 채널과 영상을 모아봤습니다.</p>
+            <p>
+              유튜브 API를 이용하여 좋아하는 다큐멘터리 채널과 영상을
+              모아봤습니다.
+            </p>
           </div>
           <svg
-            class="content__img content__img--2"
+            className="content__img content__img--2"
             width="100%"
             height="100%"
             viewBox="0 0 913 516"
@@ -119,17 +116,19 @@ const Section3 = () => {
                   r="0"
                   fill="white"
                   ref={circleMaskRef}
-                  class="mask"
+                  className="mask"
                   style={{ filter: "url(#displacementFilter2)" }}
                 />
               </mask>
             </defs>
-            <image
-              xlinkHref={Img2}
-              width="100%"
-              height="100%"
-              mask="url(#circleMask2)"
-            />
+            <Link to="/home">
+              <image
+                xlinkHref={Img2}
+                width="100%"
+                height="100%"
+                mask="url(#circleMask2)"
+              />
+            </Link>
           </svg>
         </div>
       </div>

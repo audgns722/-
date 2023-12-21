@@ -88,7 +88,7 @@ section {
   text-align: center;
 }
 
-.scroll-btn>* {
+.scroll-btn > * {
   display: inline-block;
   line-height: 18px;
   font-size: 13px;
@@ -97,20 +97,6 @@ section {
   color: #ffffff;
   font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
   letter-spacing: 2px;
-}
-
-.scroll-btn>*:hover,
-.scroll-btn>*:focus,
-.scroll-btn>*.active {
-  color: #ffffff;
-}
-
-.scroll-btn>*:hover,
-.scroll-btn>*:focus,
-.scroll-btn>*:active,
-.scroll-btn>*.active {
-  opacity: 0.8;
-  filter: alpha(opacity=80);
 }
 
 .scroll-btn .mouse {
@@ -126,7 +112,7 @@ section {
   border-radius: 23px;
 }
 
-.scroll-btn .mouse>* {
+.scroll-btn .mouse > * {
   position: absolute;
   display: block;
   top: 29%;

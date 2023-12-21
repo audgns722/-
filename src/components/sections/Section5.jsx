@@ -2,12 +2,12 @@ import React, { useEffect, useRef } from "react";
 import Img4 from "../../assets/img/section5bg.png";
 import { ScrollTrigger } from "gsap/all";
 import gsap from "gsap";
+import { Link } from "react-router-dom";
 
 const Section5 = () => {
   gsap.registerPlugin(ScrollTrigger);
   const circleMask5Ref = useRef(null);
   const section5Ref = useRef(null);
-
   const text1Ref = useRef(null); // 필요한 경우 text1, text2 참조
   const text2Ref = useRef(null);
 
@@ -19,46 +19,39 @@ const Section5 = () => {
         start: "top center",
         end: "bottom bottom",
         scrub: 1,
-        markers: true
+        markers: true,
       },
       onComplete: () => {
         gsap.to(".contents5 .desc", {
           opacity: 0.5,
-          ease: "expo.in"
+          ease: "expo.in",
         });
-      }
+      },
     });
 
+    gsap.to(text1Ref.current, {
+      opacity: 1,
+      top: "0", // 상단으로 이동
+      scrollTrigger: {
+        trigger: section5Ref.current,
+        start: "25% center",
+        end: "bottom bottom",
+        ease: "none",
+        scrub: true,
+      },
+    });
 
-    gsap.to(
-      text1Ref.current,
-      {
-        opacity: 1,
-        top: "0", // 상단으로 이동
-        scrollTrigger: {
-          trigger: section5Ref.current,
-          start: "25% center",
-          end: "bottom bottom",
-          ease: "none",
-          scrub: true,
-        },
-      }
-    );
-
-    gsap.to(
-      text2Ref.current,
-      {
-        opacity: 1,
-        bottom: "0", // 하단으로 이동
-        scrollTrigger: {
-          trigger: section5Ref.current,
-          start: "25% center",
-          end: "bottom bottom",
-          scrub: true,
-          ease: "none",
-        },
-      }
-    );
+    gsap.to(text2Ref.current, {
+      opacity: 1,
+      bottom: "0", // 하단으로 이동
+      scrollTrigger: {
+        trigger: section5Ref.current,
+        start: "25% center",
+        end: "bottom bottom",
+        scrub: true,
+        ease: "none",
+      },
+    });
 
     return () => {
       maskAnimation.kill();
@@ -77,10 +70,13 @@ const Section5 = () => {
             Php
           </div>
           <div className="desc">
-            <p>유튜브 API를 이용하여 좋아하는 다큐멘터리 채널과 영상을 모아봤습니다.</p>
+            <p>
+              유튜브 API를 이용하여 좋아하는 다큐멘터리 채널과 영상을
+              모아봤습니다.
+            </p>
           </div>
           <svg
-            class="content__img content__img--5"
+            className="content__img content__img--5"
             width="100%"
             height="100%"
             viewBox="0 0 1920 579"
@@ -114,17 +110,19 @@ const Section5 = () => {
                   r="0"
                   fill="white"
                   ref={circleMask5Ref}
-                  class="mask"
+                  className="mask"
                   style={{ filter: "url(#displacementFilter5)" }}
                 />
               </mask>
             </defs>
-            <image
-              xlinkHref={Img4}
-              width="100%"
-              height="100%"
-              mask="url(#circleMask5)"
-            />
+            <Link to="/home">
+              <image
+                xlinkHref={Img4}
+                width="100%"
+                height="100%"
+                mask="url(#circleMask5)"
+              />
+            </Link>
           </svg>
         </div>
       </div>
