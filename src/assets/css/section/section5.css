@@ -13,20 +13,41 @@
 
 #section5 .contents5 .cont__box {
   position: relative;
-  max-width: 1280px;
-  width: 80%;
-}
-
-#section5 .contents5 .text {
-  color: var(--white);
-  font-family: var(--title-font);
-  font-size: 5vw;
+  max-width: 1920px;
+  width: 100%;
 }
 
 #section5 .contents5 .text1 {
+  opacity: 0;
   position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--white);
+  font-family: var(--section5);
+  font-size: 7.3vw;
 }
 
 #section5 .contents5 .text2 {
+  opacity: 0;
   position: absolute;
+  right: 50%;
+  bottom: 50%;
+  transform: translate(50%, 50%);
+  color: var(--white);
+  font-family: var(--section5);
+  font-size: 7.3vw;
+}
+
+.contents5 .desc {
+  opacity: 0;
+  position: absolute;
+  text-align: center;
+  width: 300px;
+  left: 50%;
+  bottom: -120px;
+  transform: translateX(-50%);
+  font-family: 'NanumSquareNeo';
+  font-weight: 200;
+  color: var(--white);
 }

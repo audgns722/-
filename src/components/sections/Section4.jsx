@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import Img3 from "../../assets/img/3.jpg"; // 이미지 변경
+import Img3 from "../../assets/img/test.png"; // 이미지 변경
 
 import { ScrollTrigger } from "gsap/all";
 import gsap from "gsap";

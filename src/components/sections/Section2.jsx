@@ -1,8 +1,9 @@
 import React, { useEffect, useRef } from "react";
-import Img1 from "../../assets/img/testimg.png";
+import Img1 from "../../assets/img/section2bg.png";
 
 import { ScrollTrigger } from "gsap/all";
 import gsap from "gsap";
+import { Link } from "react-router-dom";
 
 const Section2 = () => {
   gsap.registerPlugin(ScrollTrigger);
@@ -17,43 +18,50 @@ const Section2 = () => {
       attr: { r: 820 },
       scrollTrigger: {
         trigger: section2Ref.current,
-        start: "25% center",
-        scrub: 1,
-        markers: true
+        start: "top center",
+        bottom: "bottom bottom",
+        scrub: 3,
       },
     });
 
 
-    // text1, text2에 ScrollTrigger 애니메이션 적용
+    // text1에 ScrollTrigger 애니메이션 적용
     gsap.to(
       text1Ref.current,
       {
         opacity: 1,
-        left: 0,
-        top: 0,
+        left: "0", // 왼쪽 끝으로 이동
+        top: "0", // 상단으로 이동
         scrollTrigger: {
           trigger: section2Ref.current,
           start: "25% center",
           end: "bottom bottom",
-          ease: "none",
-          scrub: 1,
+          ease: "ease in",
+          scrub: 2.5,
         },
       }
     );
 
+    // text2에 ScrollTrigger 애니메이션 적용
     gsap.to(
       text2Ref.current,
       {
         opacity: 1,
-        right: 0,
-        bottom: 0,
+        right: "0", // 오른쪽 끝으로 이동
+        bottom: "0", // 하단으로 이동
         scrollTrigger: {
           trigger: section2Ref.current,
           start: "25% center",
           end: "bottom bottom",
-          scrub: 1,
-          ease: "none",
+          scrub: 2.5,
+          ease: "ease in",
         },
+        onComplete: () => {
+          gsap.to(".contents2 .desc", {
+            opacity: 0.5,
+            ease: "expo.in",
+          });
+        }
       }
     );
 
@@ -65,23 +73,23 @@ const Section2 = () => {
   }, []);
 
   return (
-    <section id="section2" ref={section2Ref}>
-      <div className="contents2">
+    <section id="section2">
+      <div className="contents2" ref={section2Ref}>
         <div className="cont__box">
           <div className="text1" ref={text1Ref}>
-            REACT
+            youtube
           </div>
           <div className="text2" ref={text2Ref}>
-            BLOG
+            api site
           </div>
           <div className="desc">
-            <p>리</p>
+            <p>유튜브 API를 이용하여 좋아하는 다큐멘터리 채널과 영상을 모아봤습니다.</p>
           </div>
           <svg
             class="content__img content__img--1"
             width="100%"
             height="100%"
-            viewBox="0 0 500 500"
+            viewBox="0 0 504 719"
           >
             <defs>
               <filter id="displacementFilter">
@@ -111,14 +119,17 @@ const Section2 = () => {
                 />
               </mask>
             </defs>
-            <image
-              xlinkHref={Img1}
-              width="100%"
-              height="100%"
-              mask="url(#circleMask)"
-            />
+            <Link to="/home">
+              <image
+                xlinkHref={Img1}
+                width="100%"
+                height="100%"
+                mask="url(#circleMask)"
+              />
+            </Link>
           </svg>
         </div>
+
       </div>
     </section>
   );

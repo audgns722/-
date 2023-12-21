@@ -1,12 +1,12 @@
 #section1 {
   width: 100%;
-  height: 100vh;
+  height: 110vh;
   background: linear-gradient(0deg, transparent, hsl(15deg 55% 6%));
 }
 
 .sec1__cont {
   width: 100%;
-  height: 100%;
+  height: 90vh;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -15,29 +15,39 @@
 }
 
 .sec1__cont h1 {
-  font-size: 5vw;
-  font-family: var(--title-font);
-  color: var(--title-color);
-}
-
-.sec1__cont h2 {
-  font-size: 5vw;
-  font-family: var(--title-font2);
-  color: var(--title-color);
-}
-
-.sec1__cont h3 {
-  font-size: 5vw;
-  font-family: var(--title-font3);
-  color: var(--title-color);
-}
-
-.sec1__cont h4 {
-  font-size: 5vw;
-  font-family: var(--title-font4);
+  font-size: 6.25vw;
+  font-family: var(--section2);
+  font-weight: 300;
   color: var(--title-color);
 }
 
 .sec1__cont p {
+  font-family: var(--minifont);
+  font-size: 20px;
+  font-weight: 200;
   color: var(--white);
+}
+
+.sec1__cont em {
+  font-weight: 300;
+}
+
+.scroll__down {
+  height: 20vh;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.scroll__down span {
+  font-family: 'NanumSquareNeo';
+  color: #5A5A5A;
+}
+
+.scroll__down div {
+  width: 1px;
+  height: 90px;
+  margin-bottom: 5px;
+  background-color: #5A5A5A;
 }

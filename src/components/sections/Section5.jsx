@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import Img4 from "../../assets/img/4.jpg";
+import Img4 from "../../assets/img/section5bg.png";
 import { ScrollTrigger } from "gsap/all";
 import gsap from "gsap";
 
@@ -13,44 +13,48 @@ const Section5 = () => {
 
   useEffect(() => {
     const maskAnimation = gsap.to(circleMask5Ref.current, {
-      attr: { r: 950 },
+      attr: { r: 1000 },
       scrollTrigger: {
         trigger: section5Ref.current,
-        start: "top 25%",
+        start: "top center",
         end: "bottom bottom",
         scrub: 1,
-        // markers: true,
+        markers: true
       },
+      onComplete: () => {
+        gsap.to(".contents5 .desc", {
+          opacity: 0.5,
+          ease: "expo.in"
+        });
+      }
     });
-    // text1, text2 애니메이션
-    gsap.fromTo(
+
+
+    gsap.to(
       text1Ref.current,
-      { opacity: 0, yPercent: -50 },
       {
         opacity: 1,
-        yPercent: 0,
+        top: "0", // 상단으로 이동
         scrollTrigger: {
           trigger: section5Ref.current,
-          start: "top 25%",
+          start: "25% center",
           end: "bottom bottom",
           ease: "none",
-          scrub: 1,
-          // markers: true
+          scrub: true,
         },
       }
     );
 
-    gsap.fromTo(
+    gsap.to(
       text2Ref.current,
-      { opacity: 0, xPercent: -100 },
       {
         opacity: 1,
-        xPercent: 0,
+        bottom: "0", // 하단으로 이동
         scrollTrigger: {
           trigger: section5Ref.current,
-          start: "top 25%",
+          start: "25% center",
           end: "bottom bottom",
-          scrub: 1,
+          scrub: true,
           ease: "none",
         },
       }
@@ -63,14 +67,23 @@ const Section5 = () => {
   }, []);
 
   return (
-    <section id="section5" ref={section5Ref}>
-      <div className="contents5">
+    <section id="section5">
+      <div className="contents5" ref={section5Ref}>
         <div className="cont__box">
+          <div className="text1" ref={text1Ref}>
+            TeamProject
+          </div>
+          <div className="text2" ref={text2Ref}>
+            Php
+          </div>
+          <div className="desc">
+            <p>유튜브 API를 이용하여 좋아하는 다큐멘터리 채널과 영상을 모아봤습니다.</p>
+          </div>
           <svg
             class="content__img content__img--5"
             width="100%"
             height="100%"
-            viewBox="0 0 1000 450"
+            viewBox="0 0 1920 579"
           >
             <defs>
               <filter id="displacementFilter5">
@@ -113,14 +126,6 @@ const Section5 = () => {
               mask="url(#circleMask5)"
             />
           </svg>
-          <div className="text">
-            <div className="text1" ref={text1Ref}>
-              YOUR TEXT1
-            </div>
-            <div className="text2" ref={text2Ref}>
-              YOUR TEXT2
-            </div>
-          </div>
         </div>
       </div>
     </section>
