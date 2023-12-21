@@ -19,7 +19,7 @@ const Section5 = () => {
         start: "top 25%",
         end: "bottom bottom",
         scrub: 1,
-        markers: true,
+        // markers: true,
       },
     });
     // text1, text2 애니메이션
@@ -35,6 +35,7 @@ const Section5 = () => {
           end: "bottom bottom",
           ease: "none",
           scrub: 1,
+          // markers: true
         },
       }
     );
@@ -67,8 +68,8 @@ const Section5 = () => {
         <div className="cont__box">
           <svg
             class="content__img content__img--5"
-            width="1000"
-            height="450"
+            width="100%"
+            height="100%"
             viewBox="0 0 1000 450"
           >
             <defs>
@@ -107,8 +108,8 @@ const Section5 = () => {
             </defs>
             <image
               xlinkHref={Img4}
-              width="1000"
-              height="450"
+              width="100%"
+              height="100%"
               mask="url(#circleMask5)"
             />
           </svg>

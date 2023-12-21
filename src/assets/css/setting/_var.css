@@ -1,8 +1,15 @@
 :root {
     --font-noto: "Noto Serif Display";
     --title-font: 'Sedgwick Ave';
+    --title-font2: 'Splash';
+    --title-font3: 'Romanesco';
+    --title-font4: 'Permanent Marker';
+
+    --subfont: 'Racing Sans One';
+
 
     --title-color: #e93f33;
+    --title-color2: #868686;
     --bgcolor: #000;
     --red: #CE0000;
     --navy: #121931;

@@ -20,6 +20,24 @@
   color: var(--title-color);
 }
 
+.sec1__cont h2 {
+  font-size: 5vw;
+  font-family: var(--title-font2);
+  color: var(--title-color);
+}
+
+.sec1__cont h3 {
+  font-size: 5vw;
+  font-family: var(--title-font3);
+  color: var(--title-color);
+}
+
+.sec1__cont h4 {
+  font-size: 5vw;
+  font-family: var(--title-font4);
+  color: var(--title-color);
+}
+
 .sec1__cont p {
   color: var(--white);
 }

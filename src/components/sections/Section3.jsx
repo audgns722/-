@@ -21,7 +21,7 @@ const Section3 = () => {
         start: "top 25%",
         end: "bottom bottom",
         scrub: 1,
-        markers: true,
+        // markers: true,
       },
     });
 
@@ -69,8 +69,8 @@ const Section3 = () => {
         <div className="cont__box">
           <svg
             class="content__img content__img--2"
-            width="1000"
-            height="450"
+            width="100%"
+            height="100%"
             viewBox="0 0 1000 450"
           >
             <defs>
@@ -110,8 +110,8 @@ const Section3 = () => {
             </defs>
             <image
               xlinkHref={Img2}
-              width="1000"
-              height="450"
+              width="100%"
+              height="100%"
               mask="url(#circleMask2)"
             />
           </svg>

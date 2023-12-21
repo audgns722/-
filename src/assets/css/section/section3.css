@@ -12,10 +12,11 @@
 }
 
 #section3 .contents3 .cont__box {
-  width: 80%;
-  max-width: 800px;
   position: relative;
+  max-width: 1280px;
+  width: 80%;
 }
+
 
 #section3 .contents3 .text {
   color: var(--white);
