@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from "react";
 import Img1 from "../../assets/img/section2bg.png";
-
 import { ScrollTrigger } from "gsap/all";
 import gsap from "gsap";
 import { Link } from "react-router-dom";
@@ -64,6 +63,51 @@ const Section2 = () => {
     };
   }, []);
 
+
+
+  const handleLinkClick = (event) => {
+    event.preventDefault();
+    const url = event.currentTarget.getAttribute('href');
+
+    // 기존 애니메이션 역재생
+    gsap.to(section2Ref.current, {
+      scale: 2,
+      duration: 2,
+    });
+    gsap.to(circleMaskRef.current, {
+      attr: { r: 0 },
+      duration: 0.5,
+      ease: "expo.in",
+      onComplete: gsap.to("#section2 .image", {
+        display: "none",
+        data: 1,
+        onComplete: () => {
+          window.location.href = url;
+        }
+      })
+    });
+    gsap.to(text1Ref.current, {
+      opacity: 0,
+      left: "50%",
+      top: "50%",
+      transform: "-50%, -50%",
+      scale: 0,
+      duration: 2
+    });
+    gsap.to(text2Ref.current, {
+      opacity: 0,
+      right: "50%",
+      bottom: "50%",
+      transform: "50%, 50%",
+      scale: 0,
+      duration: 2,
+    });
+  }
+
+  // ScrollTrigger 비활성화
+  ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+
+
   return (
     <section id="section2">
       <div className="contents2" ref={section2Ref}>
@@ -114,7 +158,8 @@ const Section2 = () => {
                 />
               </mask>
             </defs>
-            <Link to="/home">
+            <Link to="/detail2"
+              onClick={handleLinkClick}>
               <image
                 xlinkHref={Img1}
                 width="100%"
